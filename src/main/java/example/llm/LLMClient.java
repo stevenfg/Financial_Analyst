@@ -10,9 +10,8 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class LLMClient {
-    // private static final String API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent";
     private static final String API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent";
-    private static final String API_KEY = "AIzaSyAT6vDhZQBH6718zzyVBqVQgEHaaVqg2eU";
+    private static final String API_KEY = "PLACE_YOUR_KEY";
 
     public String ask(String input) {
         if (API_KEY == null || API_KEY.isEmpty()) {
@@ -37,8 +36,6 @@ public class LLMClient {
         }
     }
 
-    // Extracts the text response from Gemini's JSON
-
     private String extractGeminiResponse(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
@@ -56,7 +53,6 @@ public class LLMClient {
         }
     }
 
-    // Escapes quotes and backslashes for JSON
     private String escapeJson(String s) {
         return s.replace("\\", "\\\\").replace("\"", "\\\"");
     }
